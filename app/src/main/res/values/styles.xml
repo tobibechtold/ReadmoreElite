@@ -1,14 +1,13 @@
 <resources>
+
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="BaseTheme">
-        <!-- Customize your theme here. -->
-    </style>
+    <style name="AppTheme" parent="BaseTheme"></style>
 
     <style name="BaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/Primary</item>
         <item name="colorPrimaryDark">@color/PrimaryDark</item>
         <item name="colorAccent">@color/Accent</item>
-        <item name="android:windowBackground">@color/WindowBackground</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
         <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
         <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
     </style>
@@ -20,4 +19,5 @@
     <style name="RobotoButtonStyle" parent="android:Widget.Holo.Button">
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
+
 </resources>
