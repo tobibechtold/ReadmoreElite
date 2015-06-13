@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgViewLogo"
+        android:layout_width="24dip"
+        android:layout_height="24dip"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_marginRight="19dip"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_unread"></ImageView>
+
+    <TextView
+        android:id="@+id/txtViewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dip"
+        android:layout_toRightOf="@+id/imgViewLogo"
+        android:text="TextView"
+        android:textColor="@color/listHeadline"
+        android:textSize="17dp"> </TextView>
+
+    <TextView
+        android:id="@+id/txtViewDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtViewTitle"
+        android:layout_marginLeft="2dip"
+        android:layout_marginRight="4dip"
+        android:layout_toRightOf="@+id/imgViewLogo"
+        android:layout_toLeftOf="@+id/txtViewArrow"
+        android:textColor="@color/listDescription"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text=""></TextView>
+
+    <TextView
+        android:id="@+id/txtViewArrow"
+        android:text=">"
+        android:textSize="17dp"
+        android:textColor="@color/listDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="19dip"
+        android:layout_centerInParent="true"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

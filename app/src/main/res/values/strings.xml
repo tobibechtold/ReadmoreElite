@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ReadmoreElite</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_forum_overview">ForumOverviewActivity</string>
+    <string name="title_activity_thread_overview">ThreadOverviewActivity</string>
+    <string name="title_activity_thread">ThreadActivity</string>
+
+</resources>
