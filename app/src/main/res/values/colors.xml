@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="Primary" >#546e7a</color>
-    <color name="PrimaryDark" >#455a64</color>
-    <color name="Accent" >#455a64</color>
-    <color name="WindowBackground" >#F5F5F5</color>
+
+    <color name="Primary">#546e7a</color>
+    <color name="PrimaryDark">#455a64</color>
+    <color name="Accent">#455a64</color>
+
+    <color name="windowBackground">#F5F5F5</color>
     <color name="navigatonBar">#546e7a</color>
     <color name="listHeadline">#616161</color>
     <color name="listDescription">#9e9e9e</color>
-</resources> 
+
+</resources>
