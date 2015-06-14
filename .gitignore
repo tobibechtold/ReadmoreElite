@@ -20,3 +20,6 @@ local.properties
 
 # Mac specific directory
 .DS_Store
+
+# Windows specific directory
+Thumbs.db
