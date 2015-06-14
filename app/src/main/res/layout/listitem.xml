@@ -1,52 +1,46 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/spacing_2x"
+    android:paddingTop="@dimen/spacing_2x"
+    android:layout_marginTop="@dimen/spacing_1x">
 
     <ImageView
         android:id="@+id/imgViewLogo"
-        android:layout_width="24dip"
-        android:layout_height="24dip"
-        android:layout_alignParentLeft="true"
-        android:layout_centerInParent="true"
-        android:layout_marginRight="19dip"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_unread"></ImageView>
+        android:src="@drawable/ic_unread"
+        android:layout_width="@dimen/spacing_3x"
+        android:layout_height="@dimen/spacing_3x"
+        android:layout_marginLeft="@dimen/spacing_2x"
+        android:layout_centerVertical="true"/>
 
     <TextView
         android:id="@+id/txtViewTitle"
+        android:text="listHeadline"
+        android:textColor="@color/listHeadline"
+        android:textSize="@dimen/font_normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="2dip"
-        android:layout_toRightOf="@+id/imgViewLogo"
-        android:text="TextView"
-        android:textColor="@color/listHeadline"
-        android:textSize="17dp"> </TextView>
+        android:layout_marginLeft="@dimen/spacing_9x"
+        android:layout_marginRight="@dimen/spacing_6x"/>
 
     <TextView
         android:id="@+id/txtViewDescription"
+        android:text=""
+        android:textColor="@color/listDescription"
+        android:textSize="@dimen/font_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtViewTitle"
-        android:layout_marginLeft="2dip"
-        android:layout_marginRight="4dip"
-        android:layout_toRightOf="@+id/imgViewLogo"
-        android:layout_toLeftOf="@+id/txtViewArrow"
-        android:textColor="@color/listDescription"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=""></TextView>
+        android:layout_marginLeft="@dimen/spacing_9x"
+        android:layout_marginRight="@dimen/spacing_6x"
+        android:layout_below="@+id/txtViewTitle"/>
 
-    <TextView
-        android:id="@+id/txtViewArrow"
-        android:text=">"
-        android:textSize="17dp"
-        android:textColor="@color/listDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="19dip"
-        android:layout_centerInParent="true"
-        android:textStyle="bold"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
+    <ImageView
+        android:id="@+id/imgViewArrow"
+        android:src="@drawable/ic_arrow"
+        android:layout_width="@dimen/spacing_1x"
+        android:layout_height="@dimen/spacing_1x"
+        android:layout_marginRight="@dimen/spacing_2x"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
