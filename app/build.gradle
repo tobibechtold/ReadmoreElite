@@ -2,10 +2,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'Tobias Bechtold'
-            keyPassword 'Tobiasb1!'
-            storeFile file('C:/Users/Tobias/keystore.jks')
-            storePassword 'Tobiasb1!'
+            keyAlias 'android'
+            keyPassword 'android'
+            storeFile rootProject.file('keystore.jks')
+            storePassword 'android'
         }
     }
     compileSdkVersion 22
