@@ -4,7 +4,7 @@ android {
         config {
             keyAlias 'android'
             keyPassword 'android'
-            storeFile file('keystore.jks')
+            storeFile rootProject.file('keystore.jks')
             storePassword 'android'
         }
     }
