@@ -25,7 +25,7 @@
 
     <TextView
         android:id="@+id/txtViewDescription"
-        android:text="test"
+        android:text=""
         android:textColor="@color/listDescription"
         android:textSize="@dimen/font_small"
         android:layout_width="wrap_content"
