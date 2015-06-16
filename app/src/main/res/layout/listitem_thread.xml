@@ -25,8 +25,8 @@
 
     <TextView
         android:id="@+id/txtViewDescription"
-        android:text=""
-        android:textColor="@color/listAddition"
+        android:text="test"
+        android:textColor="@color/listDescription"
         android:textSize="@dimen/font_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
     <TextView
         android:id="@+id/txtViewCount"
         android:text=""
-        android:textColor="@color/listDescription"
+        android:textColor="@color/listAddition"
         android:textSize="@dimen/font_small"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
