@@ -8,5 +8,6 @@ public enum RMStatus {
 	UNREAD,
 	STICKY_READ,
 	STICKY_UNREAD,
-	CLOSED;
+	CLOSED,
+    CLOSED_UNREAD;
 }
