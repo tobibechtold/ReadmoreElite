@@ -10,18 +10,37 @@ public class RMThread {
 	int anzahlSeiten;
 	User erstelltVon;
 	RMStatus read;
-	
-	public RMThread() {
-		
-	}
+    String letzterBeitrag;
+    String letzterBeitragDatum;
+    int anzahlBeitraege;
 
-	public RMThread(String titel, int id, User erstelltVon,
-			List<Beitrag> beitraege) {
-		super();
-		this.titel = titel;
-		this.id = id;
-		this.erstelltVon = erstelltVon;
-	}
+    public int getAnzahlBeitraege() {
+        return anzahlBeitraege;
+    }
+
+    public void setAnzahlBeitraege(int anzahlBeitraege) {
+        this.anzahlBeitraege = anzahlBeitraege;
+    }
+
+    public String getLetzterBeitragDatum() {
+        return letzterBeitragDatum;
+    }
+
+    public void setLetzterBeitragDatum(String letzterBeitragDatum) {
+        this.letzterBeitragDatum = letzterBeitragDatum;
+    }
+
+    public RMThread() {
+
+    }
+
+    public String getLetzterBeitrag() {
+        return letzterBeitrag;
+    }
+
+    public void setLetzterBeitrag(String letzterBeitrag) {
+        this.letzterBeitrag = letzterBeitrag;
+    }
 
 	public RMStatus getRead() {
 		return read;

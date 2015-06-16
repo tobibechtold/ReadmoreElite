@@ -57,11 +57,13 @@ public class ThreadAdapter extends ArrayAdapter<RMThread> {
 		View v = convertView;
 		if (v == null) {
 			LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			v = inflater.inflate(R.layout.listitem, null);
+			v = inflater.inflate(R.layout.listitem_thread, null);
 		}
 		
 		RMThread c = itemList.get(position);
 		TextView text = (TextView) v.findViewById(R.id.txtViewTitle);
+        TextView textDescription = (TextView) v.findViewById(R.id.txtViewDescription);
+        TextView textCount = (TextView) v.findViewById(R.id.txtViewCount);
 		ImageView image = (ImageView) v.findViewById(R.id.imgViewLogo);
 		
 		if(c.getRead() == RMStatus.READ) {
@@ -80,6 +82,8 @@ public class ThreadAdapter extends ArrayAdapter<RMThread> {
 			image.setImageResource(R.drawable.ic_closed_unread);
 		}
 		text.setText(c.getTitel());
+        textDescription.setText(c.getLetzterBeitragDatum() + " - " + c.getLetzterBeitrag());
+        textCount.setText("" + c.getAnzahlBeitraege());
 		return v;
 	}
 

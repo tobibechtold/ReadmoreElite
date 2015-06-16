@@ -202,8 +202,7 @@ public class ThreadOverviewActivity extends AppCompatActivity {
 				HttpResponse getResponse = client.execute(get);
 				List<String> read = new ArrayList<String>();
 				String html = EntityUtils.toString(getResponse.getEntity());
-//				EntityUtilsHC4.consume(getResponse.getEntity());
-				
+
 				Document doc = Jsoup.parse(html);
 				Elements allThreads = doc.getElementsByClass("forum_threads");
 				for(Element thread : allThreads) {
@@ -228,8 +227,10 @@ public class ThreadOverviewActivity extends AppCompatActivity {
 						t.setRead(RMStatus.STICKY_READ);
 					else if(read.get(i-1).equals("status read "))
 						t.setRead(RMStatus.READ);
-					else
-						t.setRead(RMStatus.CLOSED);
+					else if(read.get(i-1).equals("status unread closed"))
+						t.setRead(RMStatus.CLOSED_UNREAD);
+                    else if(read.get(i-1).equals("status read closed"))
+                        t.setRead(RMStatus.CLOSED);
 					
 					list2.add(t);
 				}
@@ -269,6 +270,9 @@ public class ThreadOverviewActivity extends AppCompatActivity {
 				t.setTitel(jsonObject.getString("titel"));
 				t.setId(jsonObject.getInt("id"));
 				t.setAnzahlSeiten(jsonObject.getInt("anzahlSeiten"));
+                t.setLetzterBeitrag(jsonObject.getString("letzterBeitrag"));
+                t.setLetzterBeitragDatum(jsonObject.getString("letzterBeitragDatum"));
+                t.setAnzahlBeitraege(jsonObject.getInt("anzahlBeitraege"));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

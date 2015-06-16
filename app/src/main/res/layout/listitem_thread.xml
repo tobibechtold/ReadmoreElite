@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/spacing_2x"
+    android:paddingTop="@dimen/spacing_2x"
+    android:layout_marginTop="@dimen/spacing_1x">
+
+    <ImageView
+        android:id="@+id/imgViewLogo"
+        android:src="@drawable/ic_unread"
+        android:layout_width="@dimen/spacing_3x"
+        android:layout_height="@dimen/spacing_3x"
+        android:layout_marginLeft="@dimen/spacing_2x"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/txtViewTitle"
+        android:text="listHeadline"
+        android:textColor="@color/listHeadline"
+        android:textSize="@dimen/font_normal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_9x"
+        android:layout_marginRight="@dimen/spacing_6x"/>
+
+    <TextView
+        android:id="@+id/txtViewDescription"
+        android:text=""
+        android:textColor="@color/listDescription"
+        android:textSize="@dimen/font_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/spacing_9x"
+        android:layout_marginRight="@dimen/spacing_6x"
+        android:layout_below="@+id/txtViewTitle"/>
+
+    <TextView
+        android:id="@+id/txtViewCount"
+        android:layout_width="@dimen/spacing_9x"
+        android:layout_height="@dimen/spacing_9x"
+        android:text=""
+        android:textColor="@color/listDescription"
+        android:layout_marginRight="@dimen/spacing_2x"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
