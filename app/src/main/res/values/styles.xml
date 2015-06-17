@@ -12,6 +12,15 @@
         <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
     </style>
 
+    <style name="BaseTheme.NoTitleBar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/Primary</item>
+        <item name="colorPrimaryDark">@color/PrimaryDark</item>
+        <item name="colorAccent">@color/Accent</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:textViewStyle">@style/RobotoTextViewStyle</item>
+        <item name="android:buttonStyle">@style/RobotoButtonStyle</item>
+    </style>
+
     <style name="RobotoTextViewStyle" parent="android:Widget.TextView">
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
