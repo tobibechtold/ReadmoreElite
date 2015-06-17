@@ -2,49 +2,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Primary"
     tools:context="de.readmoreelite.view.LoginActivity" >
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/loginLogo"
+        android:src="@drawable/logo"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginLeft="@dimen/spacing_2x"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/spacing_5x"
+        android:layout_marginTop="@dimen/spacing_8x"/>
+
+    <TextView
+        android:id="@+id/loginHeadline"
+        android:text="@string/login_headline"
+        android:textColor="@color/White"
+        android:textSize="@dimen/font_large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/loginLogo"
+        android:layout_marginBottom="@dimen/spacing_9x"/>
+
+    <EditText
+        android:id="@+id/editText1"
+        android:hint="@string/prompt_email"
+        android:inputType="textEmailAddress"
+        android:textSize="@dimen/font_small"
+        android:textColor="@color/White"
+        android:textColorHint="@color/loginEdittext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_7x"
+        android:background="@drawable/login_textedit"
+        android:layout_below="@+id/loginHeadline"
+        android:layout_marginBottom="@dimen/spacing_2x"
+        android:layout_marginLeft="@dimen/spacing_5x"
+        android:layout_marginRight="@dimen/spacing_5x"/>
+
+    <EditText
+        android:id="@+id/editText2"
+        android:hint="@string/prompt_password"
+        android:inputType="textPassword"
+        android:textSize="@dimen/font_small"
+        android:textColor="@color/White"
+        android:textColorHint="@color/loginEdittext"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_7x"
+        android:background="@drawable/login_textedit"
+        android:layout_below="@+id/editText1"
+        android:layout_marginBottom="@dimen/spacing_1x"
+        android:layout_marginLeft="@dimen/spacing_5x"
+        android:layout_marginRight="@dimen/spacing_5x"/>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:textColor="@color/loginEdittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_checkbox"
+        android:layout_below="@+id/editText2"
+        android:layout_marginLeft="@dimen/spacing_4x"
+        android:layout_marginRight="@dimen/spacing_4x"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:text="@string/action_login"
+        android:textSize="@dimen/font_small"
+        android:textAllCaps="true"
+        android:onClick="login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_7x"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:orientation="vertical" >
-
-        <EditText
-            android:id="@+id/editText1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Email-Adresse"
-            android:inputType="textEmailAddress" >
-
-            <requestFocus />
-        </EditText>
-
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Passwort"
-            android:inputType="textPassword" />
-
-        <CheckBox
-            android:id="@+id/checkBox1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Angemeldet bleiben" />
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="login"
-            android:text="Einloggen" />
-
-    </LinearLayout>
+        android:background="@color/PrimaryDark"/>
 
 </RelativeLayout>
