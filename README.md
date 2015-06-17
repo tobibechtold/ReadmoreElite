@@ -10,4 +10,4 @@ Android app for german e-sport website readmore.de
 * UI-Design: BanditPanda
 * Icon: FiNNE
 * Development: tob1
-[1]: https://play.google.com/store/
+[1]: https://play.google.com/store/apps/details?id=de.readmoreelite
