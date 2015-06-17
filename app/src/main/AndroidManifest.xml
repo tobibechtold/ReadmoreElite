@@ -39,7 +39,7 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="view.ThreadActivity"
+            android:name="de.readmoreelite.view.ThreadActivity"
             android:label="@string/title_activity_thread"
             android:screenOrientation="portrait" >
         </activity>
