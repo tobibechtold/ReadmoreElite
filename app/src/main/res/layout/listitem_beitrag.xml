@@ -2,32 +2,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:src="@drawable/ic_default"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        app:border_width="1dp"
+        app:border_color="@color/listDivider"/>
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="3dp"
-        android:layout_marginTop="3dp"
         android:minHeight="?android:attr/listPreferredItemHeight"
-        android:text="CodeLearn Chapter 1"
-        android:textSize="16sp" />
+        android:text="Username"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="16sp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/profile_image" />
+
+
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
         android:minHeight="?android:attr/listPreferredItemHeight"
-        android:text="Description" />
+        android:text="Post Text"
+        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/profile_image"
+        android:layout_alignStart="@+id/profile_image" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnZitieren"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:minHeight="0dp"
         android:minWidth="0dp"
-        android:text="zitieren" />
+        android:src="@drawable/ic_quote"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2" />
 
 </RelativeLayout>

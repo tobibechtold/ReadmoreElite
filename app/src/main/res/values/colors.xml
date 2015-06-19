@@ -11,5 +11,6 @@
     <color name="listDescription">#9e9e9e</color>
     <color name="listAddition">#757575</color>
     <color name="loginEdittext">#a2adb2</color>
+    <color name="listDivider">#e0e0e0</color>
 
 </resources>
