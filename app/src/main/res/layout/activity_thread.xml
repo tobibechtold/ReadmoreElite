@@ -7,7 +7,9 @@
     <Spinner
         android:id="@+id/page_spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"/>
 
     <ListView
         android:id="@+id/listView1"
@@ -15,8 +17,10 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/editPost"
         android:layout_below="@+id/page_spinner"
-        android:divider="@color/Primary"
-        android:dividerHeight="4dp" >
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:divider="@color/listDivider"
+        android:dividerHeight="1dp" >
     </ListView>
 
     <EditText
