@@ -1,5 +1,6 @@
 package de.readmoreelite.data;
 
+import java.io.InputStream;
 import java.util.List;
 
 import org.kefirsf.bb.BBProcessorFactory;
@@ -8,10 +9,14 @@ import org.kefirsf.bb.TextProcessorFactory;
 import org.kefirsf.bb.proc.BBProcessor;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +24,10 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import de.readmoreelite.R;
 import de.readmoreelite.model.Beitrag;
 
@@ -72,7 +80,9 @@ public class BeitragAdapter extends ArrayAdapter<Beitrag> {
 		}
 		
 		final Beitrag c = itemList.get(position);
-		Button btnZitieren = (Button) v.findViewById(R.id.btnZitieren);
+		ImageButton btnZitieren = (ImageButton) v.findViewById(R.id.btnZitieren);
+		CircleImageView avatarImage = (CircleImageView) v.findViewById(R.id.profile_image);
+		new AvatarDownloadTask(avatarImage).execute(c.getErsteller().getAvatar());
 		TextView text = (TextView) v.findViewById(R.id.textView1);
 		btnZitieren.setOnClickListener(new OnClickListener() {
 			
@@ -99,5 +109,33 @@ public class BeitragAdapter extends ArrayAdapter<Beitrag> {
 		this.itemList = itemList;
 	}
 
+	private class AvatarDownloadTask extends AsyncTask<String, Void, Bitmap> {
 
-}
+		private final CircleImageView imageView;
+
+		public AvatarDownloadTask(CircleImageView imageView) {
+			this.imageView = imageView;
+		}
+
+		@Override
+		protected Bitmap doInBackground(String... params) {
+			String urldisplay = params[0];
+			Bitmap mIcon11 = null;
+			try {
+				InputStream in = new java.net.URL(urldisplay).openStream();
+				mIcon11 = BitmapFactory.decodeStream(in);
+			} catch (Exception e) {
+				Log.e("Error", e.getMessage());
+				e.printStackTrace();
+			}
+			return mIcon11;
+		}
+
+		@Override
+		protected void onPostExecute(Bitmap bitmap) {
+			imageView.setImageBitmap(bitmap);
+		}
+	}
+
+
+		}
