@@ -1,61 +1,70 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:src="@drawable/ic_default"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="16dp"
-        app:border_width="1dp"
-        app:border_color="@color/listDivider"/>
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_9x"
+        android:paddingBottom="@dimen/spacing_2x"
+        android:paddingTop="@dimen/spacing_2x">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/listHeadline"
-        android:text="Username"
-        android:textSize="16sp"
-        android:layout_toRightOf="@+id/profile_image"
-        android:layout_above="@+id/textViewDatum"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="16dp" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:src="@drawable/ic_default"
+            android:layout_width="@dimen/spacing_6x"
+            android:layout_height="@dimen/spacing_6x"
+            android:layout_marginLeft="@dimen/spacing_2x"
+            android:layout_centerVertical="true"
+            app:border_width="1dp"
+            app:border_color="@color/listDivider"/>
 
-    <TextView
-        android:id="@+id/textViewDatum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp"
-        android:textColor="@color/listDescription"
-        android:text="Datum"
-        android:layout_toRightOf="@+id/profile_image"
-        android:layout_alignBottom="@+id/profile_image"
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="16dp"/>
+        <TextView
+            android:id="@+id/textView1"
+            android:text="Username"
+            android:textColor="@color/listHeadline"
+            android:textSize="@dimen/font_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_9x"
+            android:layout_marginRight="@dimen/spacing_7x"/>
 
-    <TextView
-        android:id="@+id/textViewNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="#100"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="24dp"/>
+        <TextView
+            android:id="@+id/textViewDatum"
+            android:text="Datum"
+            android:textColor="@color/listDescription"
+            android:textSize="@dimen/font_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/spacing_9x"
+            android:layout_marginRight="@dimen/spacing_7x"
+            android:layout_below="@+id/textView1"/>
+
+        <TextView
+            android:id="@+id/textViewNumber"
+            android:text="#100"
+            android:textColor="@color/listAddition"
+            android:textSize="@dimen/font_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/spacing_2x"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView2"
+        android:text="Post Text"
+        android:textColor="@color/listHeadline"
+        android:textSize="@dimen/font_normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Post Text"
-        android:layout_below="@+id/profile_image"
-        android:layout_alignLeft="@+id/profile_image"
-        android:layout_alignStart="@+id/profile_image"
-        android:layout_marginTop="16dp"/>
+        android:layout_below="@+id/relativeLayout1"
+        android:layout_marginLeft="@dimen/spacing_2x"
+        android:layout_marginRight="@dimen/spacing_2x"
+        android:layout_marginTop="@dimen/spacing_2x"/>
 
     <ImageView
         android:id="@+id/btnZitieren"
