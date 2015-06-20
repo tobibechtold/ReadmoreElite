@@ -17,35 +17,56 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="?android:attr/listPreferredItemHeight"
+        android:textColor="@color/listHeadline"
         android:text="Username"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="16dp"
         android:textSize="16sp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/profile_image" />
+        android:layout_toRightOf="@+id/profile_image"
+        android:layout_above="@+id/textViewDatum"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="16dp" />
 
+    <TextView
+        android:id="@+id/textViewDatum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/listDescription"
+        android:text="Datum"
+        android:layout_toRightOf="@+id/profile_image"
+        android:layout_alignBottom="@+id/profile_image"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"/>
 
+    <TextView
+        android:id="@+id/textViewNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#100"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"/>
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:minHeight="?android:attr/listPreferredItemHeight"
         android:text="Post Text"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/profile_image"
         android:layout_alignLeft="@+id/profile_image"
-        android:layout_alignStart="@+id/profile_image" />
+        android:layout_alignStart="@+id/profile_image"
+        android:layout_marginTop="16dp"/>
 
-    <ImageButton
+    <ImageView
         android:id="@+id/btnZitieren"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:minHeight="0dp"
         android:minWidth="0dp"
         android:src="@drawable/ic_quote"
         android:layout_below="@+id/textView2"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignStart="@+id/textView2" />
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"/>
 
 </RelativeLayout>
