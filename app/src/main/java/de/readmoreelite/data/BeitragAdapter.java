@@ -25,6 +25,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -80,24 +81,28 @@ public class BeitragAdapter extends ArrayAdapter<Beitrag> {
 		}
 		
 		final Beitrag c = itemList.get(position);
-		ImageButton btnZitieren = (ImageButton) v.findViewById(R.id.btnZitieren);
+		ImageView btnZitieren = (ImageView) v.findViewById(R.id.btnZitieren);
 		CircleImageView avatarImage = (CircleImageView) v.findViewById(R.id.profile_image);
 		new AvatarDownloadTask(avatarImage).execute(c.getErsteller().getAvatar());
-		TextView text = (TextView) v.findViewById(R.id.textView1);
+		TextView txtUsername = (TextView) v.findViewById(R.id.textView1);
+		TextView txtDatum = (TextView) v.findViewById(R.id.textViewDatum);
+		TextView txtNummer = (TextView) v.findViewById(R.id.textViewNumber);
 		btnZitieren.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				Beitrag b = c;
-				editText.append("[quote=" + b.getErsteller().getAnzeigename() + "]"+b.getOriginalInhalt()+"[/quote]");
+				editText.append("[quote=" + b.getErsteller().getAnzeigename() + "]" + b.getOriginalInhalt() + "[/quote]");
 			}
 		});
-		text.setTypeface(null, Typeface.BOLD);
-		text.setText(c.getErsteller().getAnzeigename());
-		TextView text2 = (TextView) v.findViewById(R.id.textView2);
-		text2.setMovementMethod(LinkMovementMethod.getInstance());
+		txtUsername.setTypeface(null, Typeface.BOLD);
+		txtUsername.setText(c.getErsteller().getAnzeigename());
+		txtDatum.setText(c.getTag() + ", " + c.getUhrzeit());
+		txtNummer.setText(c.getBeitragNummer());
+		TextView inhalt = (TextView) v.findViewById(R.id.textView2);
+		inhalt.setMovementMethod(LinkMovementMethod.getInstance());
 		Spanned fromHtml = Html.fromHtml(c.getInhalt());
-		text2.setText(fromHtml);
+		inhalt.setText(fromHtml);
 		return v;
 	}
 

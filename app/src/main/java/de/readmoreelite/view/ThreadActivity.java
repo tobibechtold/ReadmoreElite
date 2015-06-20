@@ -281,6 +281,9 @@ public class ThreadActivity extends AppCompatActivity {
 				TextProcessor bb = BBProcessorFactory.getInstance().createFromResource("res/raw/configuration.xml");
 				String inhaltKonvertiert = bb.process(inhalt);
 				t.setInhalt(inhaltKonvertiert);
+				t.setTag(jsonObject.getString("tag"));
+				t.setUhrzeit(jsonObject.getString("uhrzeit"));
+				t.setBeitragNummer(jsonObject.getString("beitragNummer"));
 				
 				t.setThreadId(jsonObject.getInt("threadId"));
 				u.setAnzeigename(jsonObject.getJSONObject("ersteller").getString("anzeigename"));
