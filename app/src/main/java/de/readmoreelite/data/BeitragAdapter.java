@@ -28,6 +28,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import de.readmoreelite.R;
 import de.readmoreelite.model.Beitrag;
@@ -83,7 +85,11 @@ public class BeitragAdapter extends ArrayAdapter<Beitrag> {
 		final Beitrag c = itemList.get(position);
 		ImageView btnZitieren = (ImageView) v.findViewById(R.id.btnZitieren);
 		CircleImageView avatarImage = (CircleImageView) v.findViewById(R.id.profile_image);
-		new AvatarDownloadTask(avatarImage).execute(c.getErsteller().getAvatar());
+		Picasso
+				.with(context)
+				.load(c.getErsteller().getAvatar())
+				.placeholder(R.drawable.ic_default)
+				.into(avatarImage);
 		TextView txtUsername = (TextView) v.findViewById(R.id.textView1);
 		TextView txtDatum = (TextView) v.findViewById(R.id.textViewDatum);
 		TextView txtNummer = (TextView) v.findViewById(R.id.textViewNumber);
@@ -114,33 +120,6 @@ public class BeitragAdapter extends ArrayAdapter<Beitrag> {
 		this.itemList = itemList;
 	}
 
-	private class AvatarDownloadTask extends AsyncTask<String, Void, Bitmap> {
-
-		private final CircleImageView imageView;
-
-		public AvatarDownloadTask(CircleImageView imageView) {
-			this.imageView = imageView;
-		}
-
-		@Override
-		protected Bitmap doInBackground(String... params) {
-			String urldisplay = params[0];
-			Bitmap mIcon11 = null;
-			try {
-				InputStream in = new java.net.URL(urldisplay).openStream();
-				mIcon11 = BitmapFactory.decodeStream(in);
-			} catch (Exception e) {
-				Log.e("Error", e.getMessage());
-				e.printStackTrace();
-			}
-			return mIcon11;
-		}
-
-		@Override
-		protected void onPostExecute(Bitmap bitmap) {
-			imageView.setImageBitmap(bitmap);
-		}
-	}
 
 
-		}
+}
