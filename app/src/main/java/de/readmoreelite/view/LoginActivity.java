@@ -42,6 +42,7 @@ import android.widget.EditText;
 public class LoginActivity extends AppCompatActivity {
 	
 	public boolean loggedIn = false;
+	public boolean connectivity = true;
 	public static final String PREFS_NAME = "ReadmorePreferences";
 	private static final String PREF_USERNAME = "username";
 	private static final String PREF_PASSWORD = "password";
@@ -130,8 +131,17 @@ public class LoginActivity extends AppCompatActivity {
 				page = GetPageContent(url);
 				List<NameValuePair> loginParams = getFormParams(page,
 						user, pass);
-				sendPost(url, loginParams);
+				if(loginParams != null) {
+
+					sendPost(url, loginParams);
+				}
+				else {
+					Document doc = Jsoup.parse(page);
+
+					loggedIn = true;
+				}
 			} catch (Exception e) {
+				connectivity = false;
 				e.printStackTrace();
 			}
 			
@@ -153,7 +163,7 @@ public class LoginActivity extends AppCompatActivity {
 				Intent intent = new Intent(getApplicationContext(), ForumOverviewActivity.class);
 				startActivity(intent);
 			}
-			else {
+			else if(!loggedIn && connectivity){
 				AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
 				builder.setMessage("Benutzername oder Passwort falsch").setTitle("Login fehlgeschlagen").setPositiveButton("Ok", new OnClickListener() {
 					
@@ -163,6 +173,19 @@ public class LoginActivity extends AppCompatActivity {
 					}
 				});
 				
+				AlertDialog dialog = builder.create();
+				dialog.show();
+			}
+			else if(!connectivity) {
+				AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+				builder.setMessage("readmore.de ist nicht erreichbar. Bitte überprüfen sie ihre Internetverbindung").setTitle("Keine Verbindung").setPositiveButton("Ok", new OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+				});
+
 				AlertDialog dialog = builder.create();
 				dialog.show();
 			}
@@ -207,30 +230,31 @@ public class LoginActivity extends AppCompatActivity {
 
 			// Google form id
 			Elements loginform = doc.getElementsByTag("form");
-			Elements inputElements = loginform.get(0).getElementsByTag("input");
-			String crypt = inputElements.get(0)
-					.getElementsByAttributeValue("name", "crypt").val();
-			List<NameValuePair> paramList = new ArrayList<NameValuePair>();
-			for (Element inputElement : inputElements) {
-				String key = inputElement.attr("name");
-				String value = inputElement.attr("value");
+			if(loginform.size() > 0) {
+				Elements inputElements = loginform.get(0).getElementsByTag("input");
+				String crypt = inputElements.get(0)
+						.getElementsByAttributeValue("name", "crypt").val();
+				List<NameValuePair> paramList = new ArrayList<NameValuePair>();
+				for (Element inputElement : inputElements) {
+					String key = inputElement.attr("name");
+					String value = inputElement.attr("value");
 
-				if (!key.equals("")) {
-					if (key.equals("user_name"))
-						value = username;
-					else if (key.equals("user_passwd"))
-						value = password;
-					else if (key.equals("crypt"))
-						value = crypt;
-					else if (key.equals("post"))
-						value = "1";
-					paramList.add(new BasicNameValuePair(key, value));
+					if (!key.equals("")) {
+						if (key.equals("user_name"))
+							value = username;
+						else if (key.equals("user_passwd"))
+							value = password;
+						else if (key.equals("crypt"))
+							value = crypt;
+						else if (key.equals("post"))
+							value = "1";
+						paramList.add(new BasicNameValuePair(key, value));
+					}
 				}
+				return paramList;
 			}
-
 			// build parameters list
-
-			return paramList;
+			return null;
 		}
 		
 	}

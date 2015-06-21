@@ -31,7 +31,6 @@ import org.jsoup.select.Elements;
 import org.kefirsf.bb.BBProcessorFactory;
 import org.kefirsf.bb.TextProcessor;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
