@@ -29,26 +29,24 @@
         android:id="@+id/editPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/listView1"
         android:layout_alignParentBottom="true"
-        android:ems="10"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_alignParentLeft="true"
         android:hint="Antworten..."
-        android:inputType="text"
+        android:inputType="text|textMultiLine"
         android:maxLength="2000"
         android:maxLines="4"
         android:scrollHorizontally="false"
-        android:layout_marginLeft="16dp"
-        android:layout_toLeftOf="@+id/imageButton"
-        android:layout_toStartOf="@+id/imageButton" />
-    
+        android:layout_marginLeft="16dp" />
+
     <ImageButton
         android:layout_width="78dp"
-        android:layout_height="36dp"
+        android:layout_height="42dp"
         android:src="@drawable/ic_send"
         android:id="@+id/imageButton"
         android:padding="5dp"
-        android:layout_below="@+id/listView1"
         android:scaleType="fitCenter"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="3dp"
         android:layout_marginRight="3dp"
         android:layout_alignParentRight="true"
