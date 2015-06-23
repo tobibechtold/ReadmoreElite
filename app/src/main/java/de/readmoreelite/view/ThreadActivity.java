@@ -46,6 +46,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -74,6 +75,7 @@ public class ThreadActivity extends AppCompatActivity {
 		final ListView listView = (ListView) this.findViewById(R.id.listView1);
 		
 		List<Beitrag> threads = new ArrayList<Beitrag>();
+		ImageButton btnSend = (ImageButton) this.findViewById(R.id.imageButton);
 		textPost = (EditText) this.findViewById(R.id.editPost);
 		textPost.setMaxLines(4);
 		textPost.setHorizontallyScrolling(false);
@@ -113,9 +115,9 @@ public class ThreadActivity extends AppCompatActivity {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
-					int position, long id) {
+									   int position, long id) {
 				int s = getSeite();
-				if(s != position) {	
+				if (s != position) {
 					int seite = seitenAdapter.getItem(position);
 					setSeite(position);
 					Intent intent = getIntent();
@@ -129,32 +131,24 @@ public class ThreadActivity extends AppCompatActivity {
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
 				// TODO Auto-generated method stub
-				
+
 			}
 		});
 		
-		
-		
-		
-		textPost.setOnEditorActionListener(new OnEditorActionListener() {
-			
+		btnSend.setOnClickListener(new View.OnClickListener() {
 			@Override
-			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-				if(actionId == EditorInfo.IME_ACTION_SEND) {
-					sendMessage(textPost.getText().toString());
-					return true;
-				}
-				return false;
+			public void onClick(View v) {
+				sendMessage(textPost.getText().toString());
 			}
-
-			
 		});
 		
 		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 	}
 	
 	private void sendMessage(String message) {
-		new PostController(this.categoryId, this.forenId, this.threadId).execute(message);
+		if(!message.equals("")) {
+			new PostController(this.categoryId, this.forenId, this.threadId).execute(message);
+		}
 	}
 
 	public int getSeite() {

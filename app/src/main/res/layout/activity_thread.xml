@@ -31,12 +31,28 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/listView1"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:ems="10"
         android:hint="Antworten..."
         android:inputType="text"
         android:maxLength="2000"
         android:maxLines="4"
         android:scrollHorizontally="false"
-        android:imeOptions="actionSend"/>
+        android:layout_marginLeft="16dp"
+        android:layout_toLeftOf="@+id/imageButton"
+        android:layout_toStartOf="@+id/imageButton" />
+    
+    <ImageButton
+        android:layout_width="78dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_send"
+        android:id="@+id/imageButton"
+        android:padding="5dp"
+        android:layout_below="@+id/listView1"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/background_selector" />
+
 </RelativeLayout>
