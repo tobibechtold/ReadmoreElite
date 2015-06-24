@@ -402,6 +402,7 @@ public class ThreadActivity extends AppCompatActivity {
 						.getElementsByAttributeValue("name", "crypt").val();
 				Element textArea = postForm.get(0).getElementById("post_text_0");
 				List<NameValuePair> paramList = new ArrayList<NameValuePair>();
+
 				for (Element inputElement : inputElements) {
 					String key = inputElement.attr("name");
 					String value = inputElement.attr("value");
@@ -413,6 +414,8 @@ public class ThreadActivity extends AppCompatActivity {
 							value = crypt;
 						else if (key.equals("post"))
 							value = "1";
+						else if (key.equals("post_official"))
+							value = "0";
 						paramList.add(new BasicNameValuePair(key, value));
 					}
 				}
